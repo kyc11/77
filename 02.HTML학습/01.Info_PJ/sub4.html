@@ -235,6 +235,62 @@
             </dl>
          </article>
 
+         <!-- 사진뉴스 (테이블 table) -->
+         <article class="pnews">
+            <h3>사진뉴스</h3>
+            <!-- 테이블 구성 : 3행 3열 -->
+            <table>
+                <tr>
+                    <td>1</td>
+                    <td>
+                        <a href="https://n.news.naver.com/mnews/article/293/0000040589" 
+                        target="_blank">
+                            'M자' 벗고 위성통신 탑재, <br>
+                            新 프로까지 확 달라진 아이폰14
+                        </a>
+                    </td>
+                    <td>
+                        <a href="https://n.news.naver.com/mnews/article/293/0000040589" 
+                        target="_blank">
+                            <img src="images/pn1.jpg"
+                            alt="=사진뉴스1">
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>
+                        <a href="https://n.news.naver.com/mnews/article/293/0000040592" target="_blank">
+                            아기상어와 라인프렌즈가 만났다… <br>
+                            핑크퐁·IPX, 콘텐츠·굿즈 만든다
+                        </a>
+                    </td>
+                    <td>
+                        <a href="https://n.news.naver.com/mnews/article/293/0000040592" 
+                        target="_blank">
+                            <img src="images/pn2.jpg" 
+                            alt="사진뉴스2">
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>
+                        <a href="https://n.news.naver.com/mnews/article/293/0000040594" target="_blank">
+                            소니, 블리자드 인수 후 ‘콜 오브 듀티’ 
+                            <br>제공한다는 MS에 불만 표출
+                        </a>
+                    </td>
+                    <td>
+                        <a href="https://n.news.naver.com/mnews/article/293/0000040594" target="_blank">
+                            <img src="images/pn3.png"
+                            alt="사진뉴스3">
+                        </a>
+                    </td>
+                </tr>
+            </table>
+         </article>
+
 
 
 
@@ -322,6 +378,28 @@
             (description each term)
         __________________
         주의사항 - dl은 반드시 자식요소로 dt,dd를 한번이상 사용해야함!
+
+    4. table 테이블
+        table tr td
+        table > tbody > tr > td
+
+        table : 테이블 박스 부모요소
+        tr : 테이블 행요소(table row)
+        td : 테이블 데이터(table data)
+        참고) table tr td 로만 코딩구성한 경우
+        브라우저 분석기로 보면 table > tbody 가 있다!
+        이는 테이블 본문파트를 나타낸다
+        안싸줘도 기본코딩으로 자동추가됨!
+        (원래 테이블은 thead, tbodt, tfoot 세부분으로 구성됨!)
+
+        _________________________________________________
+
+    [ p 요소 : paragraph ]
+    - 문단을 나눌때 사용하는 요소
+    - 주의: p요소 내부에 다른 블록요소를 못씀!
+    예컨데 제목요소인 h1~h6 를 내부에 못씀!
+
+
  -->
 </body>
 
