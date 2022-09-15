@@ -3,10 +3,16 @@
 
 /* 웹폰트 CDN */
 @import url('https://fonts.googleapis.com/css2?family=Single+Day&family=Yeon+Sung&family=ZCOOL+QingKe+HuangYou&family=Nanum+Gothic&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Hahmlet&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Hahmlet&display=swap');
 /* 
-    font-family: 'Single Day', cursive;
-    font-family: 'Yeon Sung', cursive;
+    1. 캐릭터 설명 제목체
+    font-family: 'Black And White Picture', cursive;
+    2. 캐릭터 설명 내용체
+    font-family: 'Hahmlet', cursive;
+    3. 캐릭터 설명 한자체
     font-family: 'ZCOOL QingKe HuangYou', cursive;
+    4. 전체 공통체(메뉴 등)
     font-family: 'Nanum Gothic', sans-serif;
 */
 
@@ -22,4 +28,24 @@ body{
     싸고 있는 박스가 이것보다 작아질 경우
     auto로 자동전환된다 */
     margin: 0 auto;
+}
+
+/* 스크롤바 디자인 클래스 */
+/* -webkit- 밴더사명(크롬,사파리) 접두어
+( 참고: -ms-(ie), -o-(오페라), -moz-(파이어폭스) ) */
+.scbar::-webkit-scrollbar {
+    /* 전체 스크롤바 크기 변경 */
+    width: 7px;
+}
+
+.scbar::-webkit-scrollbar-thumb {
+    /* 스크롤바 */
+    background-color: #555;
+    border-radius: 5px;
+}
+
+.scbar::-webkit-scrollbar-track {
+    /* 스크롤바 트랙 */
+    background-color: #ddd;
+    border-radius: 5px;
 }

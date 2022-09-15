@@ -30,7 +30,8 @@ body {
 
 /* 메인박스 */
 .cont {
-    height: 969px;
+    min-height: 969px;
+    /* 최소높이는 내용이 없어도 설정되 크기를 유지하다가 내용이 많아지면 늘어난다!(많이사용됨) */
     overflow: hidden;
 }
 /* 전체캐릭터박스 */
@@ -41,6 +42,7 @@ body {
     margin: 0 auto;
     /* 마진탑 mt */
     margin-top: 200px;
+    margin-bottom: 100px;
 }
 
 /* 자식요소의 float해제 설정 가상요소 after로! */
@@ -90,4 +92,54 @@ body {
 /* 캐릭터 이름이미지 첫번째이미지 숨기기(진한이미지) */
 .ci figcaption img:first-child {
     display: none;
+}
+
+/* 캐릭터박스 .cat에 오버시 */
+/* 마우스 오버시 처리1
+첫번째이미지 보이기 */
+.cat:hover .ci figcaption img:first-child {
+    display: inline;
+}
+
+/* 마우스 오버시 처리2
+마지막이미지 숨기기 */
+.cat:hover .ci figcaption img:last-child {
+    display: none;
+}
+
+/* 캐릭터 설명박스 */
+.cd {
+    height: 250px;
+    overflow: auto;
+    /* overflow속성
+    -> 넘치는 요소 처리속성
+    - visible 넘쳐도보임(기본값)
+    -hidden 넘치는 요소 숨기기
+    - scroll 스크롤바 생김
+        (x,y 두방향 모두 생김)
+        over-flow-y로 해야 y만 생김
+        -auto 내용넘치면 자동으로
+        y축 스크롤만 생김 */
+    margin-top: 15px;
+    background: url(../images/eachBG.jpg)
+    no-repeat center/cover;
+}
+
+/* 캐릭터 설명 타이틀 */
+.cd h3 {
+    font-family: 'Black And White Picture';
+    font-size: 21px;
+    font-weight: normal;
+    padding: 15px 10px 5px;
+    letter-spacing: -1px;
+
+}
+
+/* 캐릭터 설명 문단 */
+.cd p {
+    font-family: 'Hahmlet';
+    font-size: 16px;
+    line-height: 2;
+    padding: 10px;
+    text-align: justify;
 }
