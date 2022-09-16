@@ -3,7 +3,7 @@
 
 /* 공사중표시 */
 body *{
-    outline: 2px dashed lime;
+    /* outline: 2px dashed lime; */
 }
 
 /* 초기화 */
