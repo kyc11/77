@@ -3,7 +3,7 @@
 
 /* 공사중표시 */
 body *{
-    /* outline: 2px dashed lime; */
+    outline: 2px dashed lime;
 }
 
 /* 초기화 */
@@ -44,6 +44,9 @@ body{
     width: 250px;
     height: 250px;
     margin: 0 auto;
+
+    /* 둥근모서리 : 왼위 오른위 오른아래 왼아래(시계방향) */
+    border-radius: 50px 50px 0 0;
 }
 
 /* 눈공통 */
@@ -60,9 +63,17 @@ body{
     background-position: center;
     /* 배경크기 채움 */
     background-size: 100% 100%;
+    /* 배경색 */
+    background-color: #000;
+
+    /* 둥근모서리:50% */
+    border-radius: 50%;
+    /* 보더 이중선 */
+    border: 4px double #000;
 }
 .mt1{
-    transform:rotate(180deg)
+    /* transform:rotate(180deg) */
+
 }
 /* 왼눈 */
 .e1{
@@ -85,7 +96,9 @@ body{
     left: 100px;
     width: 50px;
     height: 50px;
-    background: url(../images/nose.jpg) no-repeat center/cover;
+    background: url(../images/nose.jpg) no-repeat 0/110% 100%;
+    /* 둥근모서리 */
+    border-radius: 30px;
 }
 
 /* 입 */
@@ -96,4 +109,121 @@ body{
     width: 150px;
     height: 50px;
     background: url(../images/mouth.png) no-repeat 0/100% 100%;
+}
+
+/* 귀공통 */
+.ear{
+    position: absolute;
+    top: 80px;
+    width: 60px;
+    height: 90px;   
+}
+
+/* 왼귀 */
+.er1{
+    left: -60px;
+    border-radius: 30px 0 0 30px;
+}
+
+/* 오른귀 */
+.er2{
+    right: -60px;
+    border-radius: 0 30px 30px 0;
+}
+
+/* 2-1-2.로봇몸통 */
+.body{
+    /* 부모자격 por */
+    position: relative;
+    width: 250px;
+    height: 310px;
+
+    /* 마영오 */
+    margin: 0 auto;
+    /* 마진상단 */
+    margin-top: 50px;
+}
+
+/* 목 */
+.neck{
+    position: absolute;
+    top: -50px;
+    left: 95px;
+    width: 60px;
+    height: 50px;
+}
+
+/* 팔공통 */
+.arm{
+    position: absolute;
+    width: 50px;
+    height: 250px;
+    /* 배경셋팅변경 */
+    background-size: 100%;
+    background-repeat: repeat-y;
+}
+
+/* 가상요소로 손만들기 */
+.arm::before{
+    content: '';
+    /* 블록요소 느낌 */
+    display: block;
+    position: absolute;
+    bottom: -25px;
+    
+    
+    width: 70px;
+    height: 70px;
+    /* 둥근모서리 */
+    border-radius: 50%;
+    background-color: yellow;
+}
+/* 왼팔 */
+.a1{
+    left: -60px;
+}
+
+/* 오른팔 */
+.a2{
+    right: -60px;
+}
+
+/* 다리공통 */
+.leg{
+    position: absolute;
+    background-size: 100%;
+    background-repeat: repeat-y;
+    width: 70px;
+    height: 300px;
+    top: 310px;
+}
+
+/* 왼다리 */
+.l1{
+    left: 0;
+}
+
+/* 오른다리 */
+.l2{
+    right: 0;
+}
+
+/* 어깨공통 */
+.shd{
+    position: absolute;
+    width: 90px;
+    height: 80px;
+    top: -20px;
+}
+
+/* 왼어깨 */
+.s1{
+    left: -80px;
+    border-radius: 50% 0 0 50%;
+}
+
+/* 오른어깨 */
+.s2{
+    right: -80px;
+    border-radius: 0 50% 50% 0;
 }
