@@ -98,7 +98,7 @@ body{
     height: 50px;
     background: url(../images/nose.jpg) no-repeat 0/110% 100%;
     /* 둥근모서리 */
-    border-radius: 30px;
+    clip-path: polygon(36% 10%,69% 10%,80% 60%,94% 70%,86% 90%,18% 90%,8% 74%,20% 60%);
 }
 
 /* 입 */
@@ -142,6 +142,18 @@ body{
     margin: 0 auto;
     /* 마진상단 */
     margin-top: 50px;
+}
+/* 가상요소로 몸 박스 하단처리 */
+.body::after{
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 20px;
+    /* 선형 그라데이션 */
+    background-image: linear-gradient(#888,#222) ;
 }
 
 /* 목 */
@@ -239,6 +251,13 @@ body{
     height: 40px;
     background-color: #000;
     border-right: 5px;
+    /* 클리핑 기법을 사용하여 그림자를 삼각형으로 만들자!
+    -> 다각형 클리핑
+    clip-path:polygon(x1 y1,x2 y2,...)
+    -> 소괄호를 비울 수 없다
+    -> 각 좌표는 x,y좌표 하나는 띄어쓰기로
+    다른 좌표는 콤마로 구분한다! */
+    clip-path: polygon(0% 100%, 50% 0%, 100% 100%)
 }
 /* 왼손그림자 위치 */
 .arm.a1::after{
@@ -269,6 +288,25 @@ body{
     top: 310px;
 }
 
+/* 가상요소로 발만들기 */
+.leg::after{
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: -30px;
+    left: -6px;
+    width: 80px;
+    height: 40px;
+    /* 둥근모서리 윗쪽만 둥글게 */
+    border-radius: 30px 30px 0 0;
+    border: 1px solid #222;
+    border-bottom: 20px solid #000;
+    /* 원형 그라데이션 */
+    background-image: 
+    radial-gradient(farthest-side at 20px 20px, #fff, #333);
+    background-color: #fff;
+}
+
 /* 왼다리 */
 .l1{
     left: 0;
@@ -297,4 +335,38 @@ body{
 .s2{
     right: -80px;
     border-radius: 0 50% 50% 0;
+}
+
+/* TV */
+.tv{
+    position: absolute;
+    top: 30px;
+    left: 15px;
+    width: 200px;
+    height: 129px;
+    background: url(../images/tv.jpg) no-repeat 0/100%;
+}
+
+/* 스크린 */
+.screen{
+    position: absolute;
+    top: 36px;
+    left: 27px;
+    /* 부모는? .tv */
+    width: 140px;
+    height: 107px;
+    background-color: #000;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* 아이프레임 */
+.screen iframe{
+    position: absolute;
+    top: 0px;
+    height: 10px;
+    width: 100%;
+    height: 100%;
+    /* 기본보더없앰 */
+    border: none;
 }
