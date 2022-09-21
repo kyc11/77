@@ -263,6 +263,7 @@ body{
     margin: 0 auto;
     /* 마진상단 */
     margin-top: 50px;
+    box-shadow: 0 0 10px 5px cyan;
 }
 /* 가상요소로 몸 박스 하단처리 */
 .body::after{
@@ -462,32 +463,33 @@ body{
 .tv{
     position: absolute;
     top: 30px;
-    left: 15px;
+    left: 20px;
     width: 200px;
-    height: 129px;
+    height: 130px;
     background: url(../images/tv.jpg) no-repeat 0/100%;
+    border: 5px ridge lightskyblue;
+    border-radius: 10px;
 }
-
 /* 스크린 */
 .screen{
     position: absolute;
-    top: 36px;
-    left: 27px;
+    top: 4px;
+    left: 11px;
     /* 부모는? .tv */
-    width: 140px;
-    height: 107px;
+    width: 141px;
+    height: 111px;
     background-color: #000;
     border-radius: 10px;
+    /* 넘치는 자식요소 숨기기 */
     overflow: hidden;
 }
-
 /* 아이프레임 */
 .screen iframe{
     position: absolute;
-    top: 0px;
-    height: 10px;
-    width: 100%;
-    height: 100%;
+    top: -5px;
+    left: -28px;
+    width: 143%;
+    height: 107%;
     /* 기본보더없앰 */
     border: none;
 }
