@@ -5,8 +5,8 @@
 
 2. 시험: 과목별 평가(각 과목이 끝나는날)
 
--> 데일리 미션 주소:
-https://drive.google.com/drive/folders/1P-suVVa6anWBdieLX4QzaZe1rkEsivz6?usp=sharing
+-> 데일리 미션 주소:https://drive.google.com/drive/folders/1P-suVVa6anWBdieLX4QzaZe1rkEsivz6?usp=sharing
+
 
 3. 공식교과서: w3c 스쿨
 https://www.w3schools.com/
