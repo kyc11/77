@@ -44,7 +44,7 @@
                 2. 적응형웹(Adaptive Web) :
                 미디어 화면크기에 따라 레이아웃 등의 CSS로
                 요소의 속성변경을 다룬 웹사이트
-
+        
                 - 우리가 CSS 코딩으로 구현하는 것은 적응형웹이다!
                 즉, 적응형웹은 반응형웹의 일부분이다!
                 하지만 일반적인 명칭으로 반응형웹으로 부른다!
@@ -226,37 +226,261 @@
     /************ 미디어쿼리 적용하기 ************/
 
     /*************** 1200px 이하 ***************/
+    @media screen and (max-width:1200px) {
+
+      /* 1. 타이틀 변경하기 */
+      .tit::after {
+        content: "최대 1200px이하";
+        color: pink;
+      }
+
+      /* 2. 기존 이미지 숨기기 */
+      .screen img:first-child {
+        display: none;
+      }
+
+      /* 3. 다음 이미지 보이기 */
+      .screen img:nth-child(2) {
+        display: inline;
+      }
+
+
+    }
 
     /* 1200px이하 */
 
     /***************** 1100px 이하 *****************/
+    @media screen and (max-width:1100px) {
+
+      /* 1. 타이틀 변경하기 */
+      .tit::after {
+        content: "최대 1100px이하";
+        color: lime;
+      }
+
+      /* 2. 기존 이미지 숨기기 */
+      .screen img:nth-child(2) {
+        display: none;
+      }
+
+      /* 3. 다음 이미지 보이기 */
+      .screen img:nth-child(3) {
+        display: inline;
+      }
+
+
+    }
 
     /* 1100px 이하 */
 
-    /****************** 1000px 이하 ******************/
+    @media screen and (max-width:1200px) {
 
-    /* 1000px이하 */
+/* 1. 타이틀 변경하기 */
+.tit::after {
+  content: "최대 1200px이하";
+  color: pink;
+}
 
-    /*************** 900px 이하 ***************/
+/* 2. 기존 이미지 숨기기 */
+.screen img:first-child {
+  display: none;
+}
 
-    /* 900px 이하 */
+/* 3. 다음 이미지 보이기 */
+.screen img:nth-child(2) {
+  display: inline;
+}
 
-    /***************** 850px 이하 *****************/
 
-    /* 850px 이하 */
+}
 
-    /****************** 830px 이하 ******************/
-    /* 830px 이하 */
+/* 1200px이하 */
 
-    /******************** 810px 이하 ********************/
+/***************** 1100px 이하 *****************/
+@media screen and (max-width:1100px) {
 
-    /* 810px 이하 */
+/* 1. 타이틀 변경하기 */
+.tit::after {
+  content: "최대 1100px이하";
+  color: lime;
+}
 
-    /******************* 790px 이하 *******************/
+/* 2. 기존 이미지 숨기기 */
+.screen img:nth-child(2) {
+  display: none;
+}
 
-    /* 790px 이하 */
+/* 3. 다음 이미지 보이기 */
+.screen img:nth-child(3) {
+  display: inline;
+}
 
-    /******************* 770px 이하 *******************/
+
+}
+
+/* 1100px 이하 */
+
+/****************** 1000px 이하 ******************/
+@media screen and (max-width:1000px) {
+
+/* 1. 타이틀 변경하기 */
+.tit::after {
+  content: "최대 1000px이하";
+  color: lightsalmon;
+}
+
+/* 2. 기존 이미지 숨기기 */
+.screen img:nth-child(3) {
+  display: none;
+}
+
+/* 3. 다음 이미지 보이기 */
+.screen img:nth-child(4) {
+  display: inline;
+}
+
+
+}
+
+/* 1000px이하 */
+
+/*************** 900px 이하 ***************/
+@media screen and (max-width:900px) {
+
+/* 1. 타이틀 변경하기 */
+.tit::after {
+  content: "최대 900px이하";
+  color: hotpink;
+}
+
+/* 2. 기존 이미지 숨기기 */
+.screen img:nth-child(4) {
+  display: none;
+}
+
+/* 3. 다음 이미지 보이기 */
+.screen img:nth-child(5) {
+  display: inline;
+}
+
+
+}
+
+/* 900px 이하 */
+
+/***************** 850px 이하 *****************/
+@media screen and (max-width:850px) {
+
+/* 타이틀 변경하기 */
+.tit::after {
+  content: "최대 850px이하";
+  color: lightgreen;
+}
+
+/* 기존 이미지 숨기기 */
+.screen img:nth-child(5) {
+  display: none;
+}
+
+/* 다음이미지 보이기 */
+.screen img:nth-child(6) {
+  display: inline;
+}
+
+}
+
+/* 850px 이하 */
+
+/****************** 830px 이하 ******************/
+@media screen and (max-width:830px) {
+
+/* 타이틀 변경하기 */
+.tit::after {
+  content: "최대 830px이하";
+  color: lightseagreen;
+}
+
+/* 기존 이미지 숨기기 */
+.screen img:nth-child(6) {
+  display: none;
+}
+
+/* 다음이미지 보이기 */
+.screen img:nth-child(7) {
+  display: inline;
+}
+
+}
+
+/* 830px 이하 */
+
+/******************** 810px 이하 ********************/
+@media screen and (max-width:810px) {
+
+/* 타이틀 변경하기 */
+.tit::after {
+  content: "최대 810px이하";
+  color: lightcyan;
+}
+
+/* 기존 이미지 숨기기 */
+.screen img:nth-child(7) {
+  display: none;
+}
+
+/* 다음이미지 보이기 */
+.screen img:nth-child(8) {
+  display: inline;
+}
+
+}
+
+/* 810px 이하 */
+
+/******************* 790px 이하 *******************/
+@media screen and (max-width:790px) {
+
+/* 타이틀 변경하기 */
+.tit::after {
+  content: "최대 790px이하";
+  color: lightskyblue;
+}
+
+/* 기존 이미지 숨기기 */
+.screen img:nth-child(8) {
+  display: none;
+}
+
+/* 다음이미지 보이기 */
+.screen img:nth-child(9) {
+  display: inline;
+}
+
+}
+
+/* 790px 이하 */
+
+/******************* 770px 이하 *******************/
+@media screen and (max-width:770px) {
+
+/* 타이틀 변경하기 */
+.tit::after {
+  content: "최대 770px이하";
+  color: greenyellow;
+}
+
+/* 기존 이미지 숨기기 */
+.screen img:nth-child(9) {
+  display: none;
+}
+
+/* 다음이미지 보이기 */
+.screen img:nth-child(10) {
+  display: inline;
+}
+
+}
+
     /* 770px 이하 */
 
     /***********************************
@@ -265,9 +489,33 @@
 
     /***************** 가로모드 + 1000px이하 *****************/
 
+    @media screen and (orientation:landscape) and (max-width:1000px){
+      /* .bx가상요소 배경변경 */
+      .bx::after {
+        background-position: top;
+        background-size: auto 56%;
+      }
+      /* 스크린 위치변경 */
+      .screen{
+        top: 114px;
+      }
+    }
+
     /* 가로모드 + 1000px이하 */
 
     /***************** 세로모드 + 1000px이하 *****************/
+    
+    @media screen and (orientation:portrait) and (max-width:1000px) {
+      /* .bx가상요소 배경변경 */
+      .bx::after {
+        background-position: top;
+        background-size: auto 60%;
+      }
+      /* 스크린 위치변경 */
+      .screen{
+        top: 130px;
+      }
+    } 
 
     /* 세로모드 + 1000px이하 */
   </style>
