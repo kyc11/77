@@ -110,11 +110,29 @@ input:focus{
     margin-top: 50px;
     text-align: center;
     font-size: 1.6rem;
+    user-select: none;
 }
 
 /* 체크박스 라벨 */
 .addbx input{
-    vertical-align: -1px;
+    vertical-align: -3px;
+    width: 0;
+
+}
+/* 체크박스 아이콘을 라벨에 넣기! */
+.addbx input+label{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    vertical-align: -2px;
+    font-size: 20px;
+    margin-right: 5px;
+    color: skyblue;
+    /* outline: 1px solid red; */
+}
+
+.addbx input:checked+label{
+    font-weight: 900;
 }
 
 /* 기타링크 구분선 */
