@@ -220,15 +220,15 @@ body{
 /* sns a요소 오버시 */
 /* 페이스북 */
 .sns a[class$=book]:hover{
-    color: lightskyblue;
+    color: blue;
 }
 /* 트위터 */
 .sns a[class*=tw]:hover{
-    color: lightcoral;
+    color: lightskyblue;
 }
 /* 인스타그램 */
 .sns a[class^='fa-brands fa-square-in']:hover{
-    color: lightgreen;
+    color: plum;
 }
 /* 
     *** 속성선택자 -> [] 대괄호 사용 ***
