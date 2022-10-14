@@ -112,6 +112,14 @@
         */
     }
 
+    .movtxt{
+        font-size: 4vw;
+    }
+
+    .movtxt li:first-child{
+        font-size: 5vw;
+    }
+
     .info address span{
         display: none;
     }
@@ -121,6 +129,6 @@
 /* 280px이하 */
 @media screen and (max-width:280px){
     .mlist ul>li {
-        flex-basis: 29.3%;
+        flex-basis: 26.3%;
     }
 }
