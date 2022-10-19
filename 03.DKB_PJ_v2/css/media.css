@@ -60,19 +60,99 @@
 /**************** 870이하 ****************/
 @media screen and (max-width:870px) {
 
-    /* 없어질 요소들 : 상단메뉴, GNB, 하단링크 */
-    .tmenu, .gnb, .blink{
+    /* 없어질 요소들 : 
+    상단메뉴, GNB, 하단링크, 서브메뉴, 서브배경가상요소 */
+    .tmenu, 
+    .gnb,
+    .blink, 
+    .smenu,
+    .gnb>ul>li.sm::after,
+    .gnb > ul > li > a::after{
         display: none;
+    }
+
+    .logo{
+        position: fixed;
+        width: 100vw;
+        text-align: center;
+        z-index: 2;
+    }
+
+    /* 전체메뉴가 보일 경우 셋팅 */
+    /* .top.on은 .top에 .on을 넣은 경우적용! */
+    /* 1. 로고고정 */
+    .top.on .logo{
+        position: fixed;
+        width: 100vw;
+        text-align: center;
+        z-index: 2;
+    }
+
+    /* 2. 햄버거 고정 */
+    .top.on .ham{
+        position: fixed;
+        z-index: 2;
+
+    }
+
+    /* + 햄버거 가상요소 모양변경 */
+    .top .on .ham::before{
+        content: '×';
+        transform: scale(1.5);
+
+    }
+    /* 3. gnb보이기 */
+    .top.on .gnb{
+        display: block;
     }
 
     /* 보여질요소 */
     .ham{
+        position: fixed;
         display: block;
+        z-index: 3;
     }
 
     /* 상단영역 높이값 */
     .top{
         height: 80px;
+    }
+
+    /* GNB 메뉴 모바일형으로 변경하기 */
+    .gnb{
+        /* 화면기준변경 포지션 */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.448);
+        z-index: 1;
+        margin: 0;
+    }
+
+    /* GNB ul */
+    .gnb>ul{
+        padding-top: 20vh;
+        /* line-height가 10vh이므로
+        6개메뉴니까 60%임. 나머지 40%의 반을
+        상단 패딩으로 설정하여 세로 중앙위치 */
+    }
+
+    /* GNB li */
+    .gnb>ul>li{
+        float: none;
+        /* float 해제 */
+        outline: 2px dashed Yellow;
+    }   
+
+    /* gnb a */
+    .gnb>ul>li a{
+        color: #fff;
+        font-size: 5vh;
+        text-align: center;
+        line-height: 10vh;
+        /* li의 높이를 만들어줌 */
     }
 
     /* 캐릭터부모박스 */
