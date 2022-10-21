@@ -5,7 +5,21 @@
    <meta charset="utf-8">
    <title> Sibling(+) 선택자 </title>
    <!-- jQuery library -->
-   
+   <script src="./js/jquery-3.6.1.min.js"></script>
+   <script>
+      // 미션: .first를 클릭하면 다음에 있는 형제요소인
+      // li의 글자가 42px로 커지면서 margin-left값이
+      // 50px로 변경되게 하시오. 트랜지션 설정도 하시오.
+      $(()=>{
+         $(".first").click((e)=>{
+            $(".second").css({
+               fontSize:"42px",
+               marginLeft:"50px",
+               transition:".5s"
+            })
+         })
+      })
+   </script>
 </head>
 
 <body>
