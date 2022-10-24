@@ -4,7 +4,22 @@
 <meta charset="utf-8">
 <title>  gt 선택자 </title>
 <!-- jQuery library -->
+<script src="./js/jquery-3.6.1.min.js"></script>
+<script>
+  $(()=>{
+    // 2차미션: 선택박스의 선택을 변경하는 순간
+    // 선택된 이름의 배경색을 무지개색 순번으로 변경하시오.
+    // 동시에 배경이미지를 body에 해당이름과 매칭하여 넣으시오.
 
+    // 이벤트 대상: #selnum
+    $("#selnum").change(function(){
+      $("body").css({
+        background: `url(img/1.jpg) no-repeat center/cover`
+      });
+    });
+
+  });
+</script>
 
 </head>
 <body>

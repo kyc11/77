@@ -12,8 +12,73 @@
 			width: 100%;
 			height: 100%;
 		}
+		.nav1{
+			/* 영역선택 안되게함! */
+			user-select: none;
+			-webkit-user-drag: none;
+		}
 	</style>
-	
+	<script src="./js/jquery-3.6.1.min.js"></script>
+	<script>
+		$(()=>{
+
+			// 글자변경
+			$(".nav1 li,#selnum").css({
+				fontSize:"42px",
+				textShadow:"1px 1px 1px #333",
+				cursor:"pointer",
+				width:"300px",
+				whiteSpace:"nowrap"
+			});
+
+			// 1차 미션: .nav 아래 li를 클릭시 클릭된 li의
+			// 글자크기를 4px씩 커지게 하시오. 동시에 글자색을
+			// 무지개색 순서로 차례로 변경되게 하시오.
+			const rcolor = ["red","orange","yellow","green","blue","navy","purple"];
+			// 배열순번변수
+			let cseq = 0;
+
+			$(".nav1 li").click(e=>{ // e-이벤트전달값
+				// 클릭된 자신은 this지만
+				// 화살표함수는 e.currentTarget
+				$(e.currentTarget).css({
+					fontSize: "+=5px",
+					color: rcolor[cseq]
+				});
+				// 무지개색 순번증가
+				cseq++;
+				if(cseq===7)cseq=0;
+			});
+
+			$(()=>{
+    		// 2차미션: 선택박스의 선택을 변경하는 순간
+    		// 선택된 이름의 배경색을 무지개색 순번으로 변경하시오.
+    		// 동시에 배경이미지를 body에 해당이름과 매칭하여 넣으시오.
+
+    		// 이벤트 대상: #selnum
+    		$("#selnum").change(function(){
+				// 선택값읽어오기
+				let opt = $(this).val();
+				// console.log(opt)
+
+				// 초기화!
+				$(".nav1 li").css({
+					backgroundColor:"transparent"
+				})
+
+				// 순번을 사용하여 .nav1 li의 같은 순번배경색 변경
+				$(`.nav1 li:eq(${opt})`).css({
+					backgroundColor:"red",
+				})
+
+      			$("body").css({
+        			background: `url(img/${opt}.jpg) no-repeat center/cover`,
+      			});
+    		});
+
+  			});
+		});
+	</script>
 
 </head>
 
