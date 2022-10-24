@@ -56,9 +56,29 @@
 }
 
 /* 1-1-2. 사이드메뉴 */
-.sideMenu{
-
+.smbx{
+    display: flex;
+    justify-content: flex-end;
+    font-family: 'Roboto',nbg;
+    font-size: 12px;
 }
+
+.smbx>li>a{
+    display: block;
+    padding: 0 13px;
+    line-height: 44px;
+    color: #747474;
+}
+
+.smsub{
+    position: absolute;
+    border: 1px solid #e5e5e5;
+}
+
+.smsub a{
+    
+}
+
 /* 1-2. 로고박스 */
 .logo{
     height: 115px;
