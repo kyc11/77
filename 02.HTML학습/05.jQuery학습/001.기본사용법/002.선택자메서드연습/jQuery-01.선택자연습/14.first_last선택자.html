@@ -4,7 +4,30 @@
 <meta charset="utf-8">
 <title> first_last 선택자 </title>
 <!-- jQuery library -->
+<script src="./js/jquery-3.6.1.min.js"></script>
+<script>
+  $(()=>{
+    // 미션: 전체 li에서 첫번째 li는 빨간 배경색
+    // 전체 li에서 마지막 li는 파란 배경색
+    // 그룹별 첫번째 li는 노란색 글자
+    // 그룹별 마지막 li는 빨간색 글자로 변경하시오.
+    $("li:first").css({
+      background:"red"
+    });
 
+    $("li:last").css({
+      background:"blue"
+    })
+
+    $("li:first-child").css({
+      color:"yellow"
+    })
+
+    $("li:last-child").css({
+      color:"red"
+    })
+  })
+</script>
 
 </head>
 <body>

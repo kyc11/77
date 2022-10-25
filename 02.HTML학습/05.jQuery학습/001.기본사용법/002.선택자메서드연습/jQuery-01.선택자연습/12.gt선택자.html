@@ -7,15 +7,14 @@
 <script src="./js/jquery-3.6.1.min.js"></script>
 <script>
   $(()=>{
-    // 2차미션: 선택박스의 선택을 변경하는 순간
-    // 선택된 이름의 배경색을 무지개색 순번으로 변경하시오.
-    // 동시에 배경이미지를 body에 해당이름과 매칭하여 넣으시오.
+    // :gt(n) -> greater than ~ 보다 큰
+    // n은 0부터
+    // 사용법: $("선택자:gt(n)")
 
-    // 이벤트 대상: #selnum
-    $("#selnum").change(function(){
-      $("body").css({
-        background: `url(img/1.jpg) no-repeat center/cover`
-      });
+    // 미션: 6번째 보다 큰 li에 배경이미지 sample1.jpg를 넣으시오
+
+    $("li:gt(5)").css({
+      backgroundImage:"url(./images/sample1.jpg)"
     });
 
   });
