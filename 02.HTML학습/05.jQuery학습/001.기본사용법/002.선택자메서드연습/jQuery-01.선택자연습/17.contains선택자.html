@@ -4,7 +4,45 @@
 <meta charset="utf-8">
 <title> contains 선택자 </title>
 <!-- jQuery library -->
+<script src="./js/jquery-3.6.1.min.js"></script>
+<script>
+  $(()=>{
 
+    /* 
+      :contains(문자)
+      -> 선택한 요소 내부 특정문자를 포함하고 있는지를
+      찾아서 선택함!
+      
+      [ 제이쿼리 메서드 소개 ]
+
+        1. delay(시간)-1/1000초 단위로 뒤에 있는 애니메이션시작전에
+        지연시간을 설정해주는 메서드
+
+        2.hide(시간,이징,함수)-설정된 시간동안 사라짐 
+        (결과 display:none)
+
+        3. show()
+    */
+
+    $("li:contains('ap')")
+    .delay(2000) // 2초후
+    // 1초간 사라짐(애니) -> 그후 실행함수(콜백함수)
+    .hide(1000,function(){
+    $("li:contains('apple')").text("사과").show(1000)
+    $("li:contains('grape')").text("포도").show(1000)
+      
+    });
+
+    $("li:contains('o')")
+    .delay(4000) // 4초후
+    // 1초간 사라짐(애니) -> 그후 실행함수(콜백함수)
+    .hide(1000,function(){
+    $("li:contains('lion')").text("사자").show(1000)
+    $("li:contains('fox')").text("여우").show(1000)
+      
+    });
+  });
+</script>
 
 </head>
 <body>
