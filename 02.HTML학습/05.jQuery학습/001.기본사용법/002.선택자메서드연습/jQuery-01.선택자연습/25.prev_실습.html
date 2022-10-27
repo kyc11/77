@@ -10,6 +10,56 @@
   div#sub { width:80px; height:80px; border:#000 thin solid;}
   p { width:50px; height:50px; border:#000 thin solid;}
 </style>
+<script src="./js/jquery-3.6.1.min.js"></script>
+<!-- 제이쿼리 UI : 컬러애니메이션 등 필요! -->
+<script src="./js/jquery-ui.min.js"></script>
+<script>
+  $(()=>{
+    /* 
+      prev() - 선택요소의 이전형제요소 선택
+      prevAll() - 선택요소의 이전형제요소들 전부선택
+
+      // 미션:마지막 p태그를 클릭하면 0.5간격으로
+      // 이전 형제요소의 배경색을 차례로 넣으시오.(p태그만!)
+
+      // 추가미션:
+      // .sub 아래 마지막 p태그를 클릭하면
+      // 이전 p태그 모두를 배경색 yellow,가로,세로 크기 100px로 
+      // 애니메이션하시오! 
+      // prevAll()사용!
+    */
+    $('#container').children("p").last().click(function(){
+      $(this).animate({
+        backgroundColor:"red",
+      },500)
+      .prev() // 앞에 있는 p형제요소
+      .delay(1000)
+      .animate({
+        backgroundColor:"yellow",
+      },500)
+      .prev()
+      .delay(2000)
+      .animate({
+        backgroundColor:"green",
+      },500)
+      .prev()
+      .delay(3000)
+      .animate({
+        backgroundColor:"lime",
+      },1000)
+    })
+
+    $(".sub").find("p").last().click(function(){
+      $(this).prevAll().animate({
+        backgroundColor: "yellow",
+        width: "100px",
+        height: "100px",
+        borderRadius: "50%"
+      },1000)
+    })
+
+  });
+</script>
 </head>
 <body>
 <div id="container">
