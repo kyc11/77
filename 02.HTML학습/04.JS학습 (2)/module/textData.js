@@ -13,8 +13,15 @@ const personInfo = [
     ["준현",23],["정희",33],["성혁",45],["아아",22]
 ];// 배열
 
+// 4. 영화정보 데이터
+const mv = [
+    ["야야야야야"],
+    ["왜왜왜왜오애"],
+    ["아아아아아"]
+];
+
 // 다중변수 전송
-export {mTitle,sTitle,personInfo};
+export {mTitle,sTitle,personInfo,mv};
 
 /* 
     export 형식:
