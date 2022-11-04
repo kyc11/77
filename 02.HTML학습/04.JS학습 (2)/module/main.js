@@ -56,5 +56,32 @@ personInfo.forEach((val)=>{
 
 // 하나의 객체를 클래스로 부터 만들기
 // 영화정보는 textData.js에서 mv변수에 배열로 담아서 가져옴!
-console.log(mv[0]);
+// console.log(mv[0]);
 // const mi1 = new MovieInfo()
+
+// 영화정보 클래스를 이용하여 생성한 객체를 담는 배열변수
+let mi = [];
+mv.forEach((v,i)=>{
+    mi[i] = new MovieInfo(
+        mv[i][0],mv[i][1],mv[i][2],mv[i][3],mv[i][4])
+
+        console.log(mi[i]);
+}); ////////////// forEach //////////////////
+
+// 객체수 만큼 for문 돌아서 출력하기
+// 객체는 for in문
+
+for(let z of mv){// z는 각 배열값 -> 
+
+    for(let x in mi){
+        let temp =""; // 임시변수*String형 초기화!
+        // 스트림 빈값을 안넣으면 undefiend 값이 들어가서
+        // += 사용시 첫번째 값으로 undefined가 찍힘!
+        temp += "<ol>";
+    
+        temp += `<li> $[x] : ${mi[x]}`;
+    
+        temp += "</ol>";
+    }
+    
+}
