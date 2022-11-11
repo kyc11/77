@@ -1,12 +1,12 @@
-// 01. 시작하기 리액트 JS
+// 01.시작하기 리액트 JS
 // html태그와 JS문법을 따옴표 없이 사용하는 JSX문법을 쓴다!
-// JSX(Javascript XML) 문법을 쓰는 파일은 .js 대신 .jsx 확장자를 씀
-// return (jsx문법적용 태그 -> 타옴표없이 바로 사용)
+// JSX(Javascript XML) 문법을 쓰는 파일은 .js 대신 .jsx 확장자를씀
+// return (jsx문법적용 태그->따옴표없이 바로 사용)
 // 홀로태그는 꼭 닫기문법적용(xml문법) -> 예) <br />
 // 함수명은 첫글자가 반드시 반드시 반드시!!! 대문자로 시작!
 // 아니면 안나옴! (원래는 클래스 기반에서 구현된것이므로 클래스가
-// 원래 첫글자가 대문자로 시작된다!!)
-function MyFirstReact(){
+// 원래 첫글자가 대문자로 시작된다!!!)
+function MyFirstReact() {
     return (
         <div>
             <h1>잘해보자! 리액트!!!</h1>
@@ -28,15 +28,15 @@ function MyFirstReact(){
             </h2>
         </div>
     );
-} // MyFirstReact
+} //////// MyFirstReact 함수 ///////////
 
 // 리액트로 html요소 페이지 요소에 삽입하기!
 // 가상돔을 셋팅하는 리액트 객체를 부른다! -> ReactDOM
 // render() -> 요소를 변경하는 메서드
-// ReactDOM.render(요소를 리턴하는 함수명으로 된 홀로태그를 씀, 넣을요소)
+// ReactDOM.render(요소를 리턴하는 함수명으로된 홀로태그를씀,넣을요소)
 // 요소를 리턴하는 함수명으로된 홀로태그를씀 -> MyFirstReact함수이므로
 // ->>> <MyFirstReact />
-// JSX문법이므로 따옴표로 안싼다!!
+// JSX문법이므로 따옴표로 안싼다!!!
 // 넣을요소 -> 01.시작하기.html 페이지의 div.mydiv요소를 선택함!
 // document.querySelector(".mydiv")
 ReactDOM.render(<MyFirstReact />,document.querySelector(".mydiv"));
