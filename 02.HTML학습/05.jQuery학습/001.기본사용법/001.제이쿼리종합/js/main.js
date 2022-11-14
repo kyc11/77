@@ -80,6 +80,9 @@ $(() => {
     // 버튼.숨겨().첫번째().보여()
     btns.hide().first().show();
 
+    //테스트시 중간버튼부터
+    // btns.hide().eq(4).show();
+
     // 3. 공통함수 : actMini() ///////////////////////
     const actMini = (ele, seq, fn) => {
         // 전달값 (ele-버튼요소,seq-방순번,fn-콜백함수)
@@ -129,7 +132,7 @@ $(() => {
                 msg.text("와~! 아늑하다! 옆방으로 가보자!") // 텍스트 변경
                     .fadeIn(300); // 나타나기
                 // 다음버튼 보이기
-                $(this).next().delay(300).slideDown(300);
+                $(this).next().delay(500).slideDown(300);
                 // slideDown(시간,이징,함수)
                 // - 자동으로 원래 높이값복원 애니
                 // - 최초상태는 항상 display:none이다!
@@ -140,22 +143,32 @@ $(() => {
         // 5. 옆방으로! 버튼 클릭시 ///////////////
         .next()
         .click(function () {
-            // () => { 내부의 this가 바깥으로 나가 window가 잡힌다! } 
+            // 일반익명함수로 해야 this가 버튼임!
+            // ()=> { 화살표함수는 내부의 this가 바깥으로 나가 window가 잡힌다!
             // 이동후 함수 /////////////////
             let fn = () => {
                 // 좀비 나타나기(2초후)
                 bd.eq(9)
                     .find(".mz")
-                    .delay(1000)
-                    .fadeIn(400,
-                        ()=> {
-                        // 좀비가 나타난 후 메시지 보이기
+                    .delay(2000)
+                    .fadeIn(
+                        400,
+                        // function(){ // 내부의 this의미가 달라짐!
+                        () => {
+                            // 화살표함수는 바깥싸고 있는 function 익명함수의
+                            // 주인인 버튼이 this임!
 
-                        msg.html("악!;;;; 좀비!<br>어서피하자!") // 텍스트 변경
-                            .fadeIn(300); // 나타나기
-                        // 다음버튼 보이기
-                        $(this).next().delay(500).slideDown(300);
+                            // 좀비가 나타난 후 메시지 보이기
+                            msg.html("악!;;;; 좀비!<br>어서피하자!") // 텍스트 변경
+                                .css({ left: "-87%" }) // 위치변경
+                                .fadeIn(300); // 나타나기
 
+                            // 다음버튼 보이기
+                            $(this).next().delay(500).slideDown(300);
+
+                            // this는 누구인가? 확인!
+                            console.log(this);
+                            // this는 이벤트걸린 버튼임!(화살표함수라 나감!)
                         }
                     ); //////// fadeIn ///////
             }; //////// fn함수 /////////////
@@ -167,97 +180,242 @@ $(() => {
         .click(function () {
             // 이동후 함수
             let fn = () => {
-                //메시지 보이기
-                msg.html("여긴 없겠지?")
-                .fadeIn(200);
+                // 메시지 보이기
+                msg.html(`여긴없겠지?`).fadeIn(200);
 
                 // 좀비보이기
                 bd.eq(7)
                     .find(".mz")
-                    .delay(1000).fadeIn(300,() => {
-                        msg.html("악! 여기도!!!")
+                    .delay(1000)
+                    .fadeIn(400, () => {
+                        // 메시지 변경하기
+                        msg.html(`악, 여기도!!!`);
                         // 다음버튼 보이기
-                        $(this).next().slideDown(300)
-                    })
-                    
-            }
+                        $(this).next().slideDown(300);
+                    });
+            };
+
             // 액션함수호출
-            actMini(this,7,fn)
+            actMini(this, 7, fn);
         })
         // 7. 다시옆방으로! 버튼 클릭시 ///////////////
         .next()
         .click(function () {
-              // 이동후 함수
+            // 이동후 함수
             let fn = () => {
                 // 첫번째 메시지
-                msg.html("여긴 없겠지?").fadeIn(300).delay(1000).fadeIn(200,()=>{
-                    // 두번째 메시지
-                    msg.html("그래도 무서우니<br>윗층으로 가자!");
-                    // 다음버튼 보이기
-                    $(this).next().slideDown(400);
-                })
-            }
+                msg.html(`여긴 없겠지?`)
+                    .fadeIn(200)
+                    .delay(1000) // 1초지연(지연시간은 애니메이션메서드 앞)
+                    .fadeIn(200, () => {
+                        // 두번째 메시지
+                        msg.html(`그래도 무서우니
+                    <br>윗층으로 가자!`);
+                        // 다음버튼 보이기
+                        $(this).next().slideDown(300);
+                    }); /////// fadeIn ////////
+            };
+
             // 액션함수호출
-            actMini(this,6,fn)
+            actMini(this, 6, fn);
         })
         // 8. 무서우니 윗층으로! 버튼 클릭시 ///////////////
         .next()
         .click(function () {
             // 이동후 함수
             let fn = () => {
-                // 첫번째 메시지
-                msg.html("무").fadeIn(200).delay(500)
-                .fadeIn(200,()=>msg.html("무서.."))
-                .delay(500).fadeIn(200,()=>msg.html("무서워.."))
-                .delay(500).fadeIn(200,
-                    ()=>{
+                // 무.서.워... 메시지
+                msg.text("무")
+                    .fadeIn(200)
+                    .delay(500)
+                    .fadeIn(200, () => msg.text("무."))
+                    .delay(500)
+                    .fadeIn(200, () => msg.text("무.서"))
+                    .delay(500)
+                    .fadeIn(200, () => msg.text("무.서."))
+                    .delay(500)
+                    .fadeIn(200, () => msg.text("무.서.워"))
+                    .delay(500)
+                    .fadeIn(200, () => msg.text("무.서.워."))
+                    .delay(500)
+                    .fadeIn(200, () => msg.text("무.서.워.."))
+                    .delay(500)
+                    .fadeIn(200, () => msg.text("무.서.워..."))
+                    .delay(500)
+                    .fadeIn(200, () => {
                         // 7번방 좀비가 올라와서
-                        // 달려든다!
-                        bd.eq(7).find(".mz").animate({
-                            bottom:bd.eq(7).height()+"px"
-                            // li 높이값만큼 bottom을 올려준다!
-                        },700,"easeOutElastic")
-                        .delay(500)
-                        .animate({
-                            right:(bd.eq(7).width()*1.2)+"px"
-                            // li 가로크기만큼 right값 변경(보정*1.2)
-                        },1000,"easeOutBounce",
-                        ()=>{
-                            // 물린후 대사
-                            msg
-                            .css({left:"-110%"})
-                            .html("아악! 나도 물렸다!<br>어서 치료주사방으로!");
+                        // 달겨든다!
+                        bd.eq(7)
+                            .find(".mz")
+                            .animate(
+                                {
+                                    // 윗층으로 올라옴
+                                    bottom: bd.eq(7).height() + "px",
+                                    // li 높이값 만큼 bottom을 올려준다!
+                                },
+                                500,
+                                "easeOutElastic"
+                            )
+                            .delay(500) // 기다림
+                            .animate(
+                                {
+                                    // 달겨들기
+                                    right: bd.eq(7).width() * 1.2 + "px",
+                                    // li 가로크기 만큼 right값 변경(보정*1.2)
+                                },
+                                1000,
+                                "easeOutBounce",
+                                () => {
+                                    // 물린후 대사
+                                    msg.css({ left: "-110%" })
+                                        .html(`아~악! 물렸다!<br>
+                                    어서 치료주사방으로!`);
 
-                            // 미니언즈 좀비 이미지 변경 (1초후)
-                            setTimeout(()=>{
-                                mi.find("img")
-                                .css({
-                                    fillter:"grayscale:(100%)"
-                                },500).delay(500)
-                                .attr("src","images/mz1.png")
+                                    // 미니언즈 좀비 이미지 변경(1초후)
+                                    setTimeout(() => {
+                                        mi.find("img")
+                                            .attr("src", "images/mz1.png")
+                                            .css({ filter: "grayscale(100%)" });
+                                        // 흑백변경: 필터 그레이스케일
 
-                                $(this).next().slideDown(300);
-                            },500)
-                        })
-                    })
-                // msg.html("무서워..").fadeIn(300).delay(1000).fadeIn(300,()=>{
-                //     bd.eq(4)
-                //     .find(zom)
-                // })
-            }
+                                        // 다음버튼 보이기
+                                        $(this).next().slideDown(300);
+                                    }, 1000); ///// setTimout ///////
+                                }
+                            ); ////// animate /////
+                    });
+            };
+
             // 액션함수호출
-            actMini(this,4,fn)
+            actMini(this, 4, fn);
         })
         // 9. 치료주사방으로! 버튼 클릭시 ///////////////
         .next()
-        .click(function () {})
+        .click(function () {
+            // 이동후 함수
+            let fn = () => {
+                // 주사기돌기(animate는 트랜스폼 적용안됨)
+                $(".inj").css({
+                    transform:"rotate(-150deg)", // 반시계방향회전
+                    transition:".5s .5s", // 0.5초후 0.5초간 애니
+                    zIndex:"9999" // 미니언즈 보다 위
+                }); //////// css ///////
+
+                // 미니언즈로 다시 태어나다!(1초후)
+                setTimeout(() => {
+                    // 이미지변경
+                    mi.find("img").attr("src","images/m2.png")
+                    .css({filter:"grayscale(0)"})//다시컬러!
+                    // 대사
+                    msg.html("이제 조그만 더<br>가면 탈출이닷!")
+                    .css({left:"-84%"})
+                    .fadeIn(200);
+
+                    // 주사기 없애기
+                    $(".inj").hide()
+
+                    // 다음버튼 보이기
+                    $(this).next().slideDown(300)
+
+
+                }, 1000);
+
+            };
+
+            // 액션함수호출
+            actMini(this, 2, fn);
+        })
         // 10. 3번방으로! 버튼 클릭시 ///////////////
         .next()
-        .click(function () {})
+        .click(function () {
+            // 이동후 함수
+            let fn = () => {
+                // 메시지 보이기
+                msg.html("어서! 위층으로 가자!").fadeIn(200);
+
+                $(this).next().slideDown(300)
+            };
+
+            // 액션함수호출
+            actMini(this, 3, fn);
+        })
         // 11. 1번방으로! 버튼 클릭시 ///////////////
         .next()
-        .click(function () {})
+        .click(function () {
+            // 이동후 함수
+            let fn = () => {
+                msg.html("이제 곧 탈출이다!")
+                .fadeIn(300)
+
+                // 다음버튼 보이기
+                $(this).next().slideDown(300)
+            };
+
+            // 액션함수호출
+            actMini(this, 1, fn);
+        })
         // 12. 헬기를 호출! 버튼 클릭시 ///////////////
         .next()
-        .click(function () {});
+        .click(function () {
+            // 이동후 함수
+            let fn = () => {
+                // 메시지 보이기
+                msg.html("도와줘요!!")
+                .fadeIn(200);
+
+                // 1번방 단체좀비들 달겨듬!
+                bd.eq(1).find(".mz")
+                .fadeIn(300)
+                .animate({
+                    right:bd.eq(1).width() + "px"
+                },3000,"easeInExpo");
+
+                // 헬기등장
+                $(".heli").animate({
+                    left:"20%"
+                },4000,"easeOutBack",
+                function(){ // 여기서 this는 .heli
+                    // 헬기도착 후 탑승이미지 변경
+                    $(this).attr("src","images/heli2.png");
+                    // 원본 미니언즈는 사라짐
+                    mi.hide();
+            })
+            .delay(500) // 0.5초 쉬었다가
+            .animate({ // 다시 오른쪽 끝으로 이동
+                left: "70%"
+            },4000,"easeInOutCirc",
+            function(){ // 끝쪽에서 조정사 좀비로!
+                $(this).attr("src","images/heli3.png");
+            })
+            .delay(500)
+            .animate({ // 아주 천천히 오른쪽 바깥으로 나감!
+                left:"100%"
+            },10000,"linear",()=>{
+                // 최종마무리구역
+
+                // 간판 떨어뜨리기 
+                // 1단계 : 중간까지 떨어짐
+                // -> 간판에 class "on"
+                let tit = $(".tit");
+                tit.addClass("on");
+                setTimeout(
+                   // -> 간판에 class "on2" 주기
+                () => tit.addClass("on2") 
+                , 3000);
+
+                // 빌딜 무너뜨리기
+                // 간판 떨어진 후 실행(6초)
+                setTimeout(() => {
+                    bd.parent().addClass("on")
+                    // parent() 부모요소인 .building
+                }, 6000);
+
+            })
+
+
+            };
+
+            // 액션함수호출
+            actMini(this, 0, fn);
+        });
 }); /////////////// jQB ////////////////////
