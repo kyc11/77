@@ -5,7 +5,7 @@
 const myelement = (
     <div>
         <h1>나의 친구 리스트</h1>
-        <tabel>
+        <table>
             <tr>
                 <th>이름</th>
                 <th>전화번호</th>
@@ -26,7 +26,7 @@ const myelement = (
                 <th>3213 7957</th>
                 <th>11.14</th>
             </tr>
-        </tabel>
+        </table>
     </div>
 );
 
