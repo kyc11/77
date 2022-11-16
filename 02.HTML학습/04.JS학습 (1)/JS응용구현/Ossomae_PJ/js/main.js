@@ -73,38 +73,38 @@ window.addEventListener("DOMContentLoaded", () => {
         자동넘기기 기능구현
     *****************************************/
     // 인터발용변수
-    let autoI;
-    // 타임아웃용 변수
-    let autoT;
+    // let autoI;
+    // // 타임아웃용 변수
+    // let autoT;
 
-    // 자동넘기기 /////
-    // 인터발함수를 지우려면 변수에 넣고
-    // clearInterval(변수) 해야함!!!
+    // // 자동넘기기 /////
+    // // 인터발함수를 지우려면 변수에 넣고
+    // // clearInterval(변수) 해야함!!!
 
-    /******************************* 
-        함수명: slideAuto
-        기능: 슬라이드 인터발 호출
-    *******************************/
-    function slideAuto() {
-        autoI = setInterval(() => {
-            goSlide(1);
-        }, 2000);
-    } //////// slideAuto 함수 //////////
+    // /******************************* 
+    //     함수명: slideAuto
+    //     기능: 슬라이드 인터발 호출
+    // *******************************/
+    // function slideAuto() {
+    //     autoI = setInterval(() => {
+    //         goSlide(1);
+    //     }, 2000);
+    // } //////// slideAuto 함수 //////////
 
-    // 인터발함수 최초호출!
-    slideAuto();
+    // // 인터발함수 최초호출!
+    // slideAuto();
 
-    /*********************************** 
-        함수명: clearAuto
-        기능: 인터발지우기,타임아웃셋팅
-    ***********************************/
-    function clearAuto() {
-        console.log("인터발지워!!!");
-        // 1. 인터발 지우기
-        clearInterval(autoI);
-        // 2. 타임아웃 지우기(실행쓰나미 방지!)
-        clearTimeout(autoT);
-        // 3. 일정시간 후 다시 인터발 호출!
-        autoT = setTimeout(slideAuto, 5000);
-    } /////// clearAuto함수 ////////
+    // /*********************************** 
+    //     함수명: clearAuto
+    //     기능: 인터발지우기,타임아웃셋팅
+    // ***********************************/
+    // function clearAuto() {
+    //     console.log("인터발지워!!!");
+    //     // 1. 인터발 지우기
+    //     clearInterval(autoI);
+    //     // 2. 타임아웃 지우기(실행쓰나미 방지!)
+    //     clearTimeout(autoT);
+    //     // 3. 일정시간 후 다시 인터발 호출!
+    //     autoT = setTimeout(slideAuto, 5000);
+    // } /////// clearAuto함수 ////////
 }); ///////////// 로드구역 ///////////////////
