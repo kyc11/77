@@ -1,5 +1,22 @@
 // 보그PJ 공통JS - common.js
 
+// 윈도우 가로 크기가 모바일 사이즈면 코드를 변경한다!
+// 모바일일때 적용하고 싶거나 싶지않으면 mobsts값을 활용한다!
+// 모바일일때는 1, 모바일이 아닐때 0 (가로크기 500기준)
+let mobsts = 0;
+if($(window).width() <= 500) mobsts = 1;
+console.log("모바일 적용여부: ",mobsts);
+// 이건 순전히 개발자들 브라우저 크기변경 테스트때문에 함
+$(window).resize(()=>{ // 브라우저 화면크기 변경시 계속발생!
+    // 브라우저 화면크기 변경시 계속발생
+    if($(window).width() <= 500) mobsts = 1;
+    else mobsts = 0;
+    console.log("모바일 적용여부: ",mobsts)
+    
+    // 탑영역 스타일 날리기!
+    $("#top").attr("style","")
+})
+
 // 현재 페이지명을 알아내어 제어에 활용한다!
 // 페이지명 변수
 let pname = location.pathname;
@@ -86,7 +103,7 @@ $(() => {
 
         // 1. 슬림메뉴 클래스on적용
         // 기준위치는 스크롤위치 100px이상
-        if (scTop >= 100) {
+        if (scTop >= 100 && mobsts === 0) {
             // 100px이상
             topA.addClass("on");
             // addClass(클래스명) - 클래스넣기
